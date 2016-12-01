@@ -15,7 +15,7 @@ import android.widget.TextView;
  * Created by mdelacalle on 28/11/2016.
  */
 
-public class MenuAdapter extends BaseExpandableListAdapter {
+public class MenuExpandableAdapter extends BaseExpandableListAdapter {
 
 
     private final Activity _parentActivity;
@@ -23,7 +23,7 @@ public class MenuAdapter extends BaseExpandableListAdapter {
             "En Pareja", "Con los Amigos" };
     private String[][] children = {{"Quiero ir a correr", "Quiero tomar algo"}, {"Dónde nos vamos a jugar?", "Queremos dar un paseo", "Emergencia! necesito Una farmacia!"}, {"Cena romántica", "Tomemos algo"}, {"Fiesta!"}};
 
-    public MenuAdapter(Activity parentActivity) {
+    public MenuExpandableAdapter(Activity parentActivity) {
         this._parentActivity = parentActivity;
     }
 

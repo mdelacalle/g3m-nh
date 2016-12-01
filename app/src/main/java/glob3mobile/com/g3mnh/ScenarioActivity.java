@@ -120,7 +120,7 @@ public class ScenarioActivity extends Activity {
 
         if (scenario.equals("RUN_SCENARIO_EASY")) {
             _vectorialRenderer.loadJSON(new URL("file:///route_run_easy.geojson"));
-          //  showInfo("#", "Carrera sencilla por la ciudad, sin desnivel apreciable recorriendo el río Adigio y entrando hacia la ciudad", ContextCompat.getDrawable(ScenarioActivity.this, R.drawable.run_2));
+             showInfo("#", "Carrera sencilla por la ciudad, sin desnivel apreciable recorriendo el río Adigio y entrando hacia la ciudad", ContextCompat.getDrawable(ScenarioActivity.this, R.drawable.run_2));
         }
         if (scenario.equals("RUN_SCENARIO_HARD")) {
             _vectorialRenderer.loadJSON(new URL("file:///route_run_hard.geojson"));
