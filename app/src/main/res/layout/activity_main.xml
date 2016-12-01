@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="glob3mobile.com.g3mnh.MainActivity">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/hotel"
+        android:id="@+id/imageView"
+        android:visibility="visible"
+        android:contentDescription=""
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/vr_button"
+        android:id="@+id/button_vr"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="486dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+
+
+</RelativeLayout>
