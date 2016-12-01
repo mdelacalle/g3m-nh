@@ -1,8 +1,13 @@
 package glob3mobile.com.g3mnh;
 
 import android.app.Activity;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import org.glob3.mobile.generated.AltitudeMode;
 import org.glob3.mobile.generated.Angle;
@@ -46,6 +51,7 @@ public class ScenarioActivity extends Activity {
     G3MWidget_Android _g3mWidget;
     private GEORenderer _vectorialRenderer;
     private GEO2DCoordinatesData _coordinates;
+    private RelativeLayout layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +74,7 @@ public class ScenarioActivity extends Activity {
         //TODO: Uncomment for VR
         // activateVRSensors();
 
-        final RelativeLayout layout = (RelativeLayout) findViewById(R.id.glob3);
+        layout = (RelativeLayout) findViewById(R.id.glob3);
 
         Geodetic3D correctedPosition = new Geodetic3D(Angle.fromDegrees(46.059), Angle.fromDegrees(11.1173), 5000);
         _g3mWidget.setCameraPosition(correctedPosition);
@@ -114,6 +120,7 @@ public class ScenarioActivity extends Activity {
 
         if (scenario.equals("RUN_SCENARIO_EASY")) {
             _vectorialRenderer.loadJSON(new URL("file:///route_run_easy.geojson"));
+          //  showInfo("#", "Carrera sencilla por la ciudad, sin desnivel apreciable recorriendo el río Adigio y entrando hacia la ciudad", ContextCompat.getDrawable(ScenarioActivity.this, R.drawable.run_2));
         }
         if (scenario.equals("RUN_SCENARIO_HARD")) {
             _vectorialRenderer.loadJSON(new URL("file:///route_run_hard.geojson"));
@@ -125,6 +132,22 @@ public class ScenarioActivity extends Activity {
             _vectorialRenderer.loadJSON(new URL("file:///walking_city_adventure.geojson"));
         }
 
+
+    }
+
+    private void showInfo(String distance, String description, Drawable drawable ){
+
+        RelativeLayout container = (RelativeLayout)findViewById(R.id.info_container);
+        container.bringToFront();
+
+        ImageView infoImage = (ImageView)container.findViewById(R.id.infoImage);
+        infoImage.setImageDrawable(drawable);
+
+        TextView distanceTW = (TextView) findViewById(R.id.distance);
+        distanceTW.setText(distance);
+
+        TextView descriptionTW = (TextView) findViewById(R.id.description);
+        descriptionTW.setText(description);
 
     }
 
