@@ -2,7 +2,6 @@ package glob3mobile.com.g3mnh;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.RelativeLayout;
 
 import org.glob3.mobile.generated.AltitudeMode;
@@ -57,14 +56,16 @@ public class ScenarioActivity extends Activity {
 
         _builder = new G3MBuilder_Android(this);
         _builder.setAtmosphere(true);
-         initializeScenario(scenario);
-        _builder.addPeriodicalTask(virtualVisit());
+        initializeScenario(scenario);
+
+        //TODO: Uncomment for virtual visit
+        //_builder.addPeriodicalTask(virtualVisit());
         _g3mWidget = _builder.createWidget();
 
-
+        //TODO: Uncomment for Stereo
         // _g3mWidget.getG3MWidget().setViewMode(ViewMode.STEREO);
 
-        //
+        //TODO: Uncomment for VR
         // activateVRSensors();
 
         final RelativeLayout layout = (RelativeLayout) findViewById(R.id.glob3);
@@ -137,7 +138,7 @@ public class ScenarioActivity extends Activity {
 
                 if (_coordinates != null) {
                     Geodetic2D coordinate = null;
-                    if(i<_coordinates.size()){
+                    if (i < _coordinates.size()) {
                         coordinate = _coordinates.get(i);
                     }
                     _g3mWidget.getG3MWidget().setAnimatedCameraPosition(TimeInterval.fromSeconds(3), new Geodetic3D(coordinate, 2000), Angle.fromDegrees(0), Angle.fromDegrees(-60D), false);
